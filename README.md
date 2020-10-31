@@ -1,4 +1,4 @@
-# mern-backend
+# Mern-Backend
 
 ## Requirements
 
@@ -57,6 +57,6 @@ So, with this, now to start the server, we have to run
 
     npm run dev
 
-Then we can go to the navigator and go to localhost:4000
+Then we can go to the navigator and go to localhost:3000
 
 
