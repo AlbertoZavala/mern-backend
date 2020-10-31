@@ -5,6 +5,14 @@
 #### Node:
 First of all, we have to install Node.js from [here](https://nodejs.org/es/). Express is an environment for work with javascript on sidesirver.
 
+#### MongoDB:
+We need to install MongoDB from [here](https://www.mongodb.com/try/download/community)
+We have to create a .env file on root of application (on MERN-BACKEDN) and here, we gonna set up the URI connection to mongo database.
+
+    MONGODB_URI=mongodb://localhost/{databasename}
+
+If you don't set this variable, it will be connect to testdatabase by default.
+
 ## Principal dependencies
 
 #### Express
