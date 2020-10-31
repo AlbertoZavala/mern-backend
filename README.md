@@ -13,6 +13,10 @@ We have to create a .env file on root of application (on MERN-BACKEDN) and here,
 
 If you don't set this variable, it will be connect to testdatabase by default.
 
+    PORT={portnumber}
+
+If PORT does not exist, application will take port 4000 by default
+
 ## Principal dependencies
 
 #### Express
@@ -40,7 +44,18 @@ The -D word is for keep nodemon outside of dependencies on package.json. This wi
 
 ## Run server
 
+Originally, to start the server, we need to run:
+
     node src/index.js
+
+But, as we want to use Nodemon to restart the server every code change, I do add the next line to the ***scritps***
+into package json:
+
+    "dev": "nodemon src/index.js"
+
+So, with this, now to start the server, we have to run 
+
+    npm run dev
 
 Then we can go to the navigator and go to localhost:4000
 

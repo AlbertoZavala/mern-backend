@@ -11,8 +11,8 @@ require('./database');
 async function main(){
 
     // We set the port were will be listening the server.
-    await app.listen(4000);
-     console.log('Server running on port 4000')
+    await app.listen(app.get('port'));
+     console.log('Server running on port', app.get('port'));
 }
 
 main();
