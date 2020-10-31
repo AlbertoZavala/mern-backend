@@ -17,8 +17,8 @@ app.use(express.json()); // Now, our server will understand json format.
 
 // Routes. Here, will have to define, the routes that the frontend app
 // may use.
-app.get('/api/users', (req, res) => res.send('Users Routes'));
-app.get('/api/notes', (req, res) => res.send('Notes Routes'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/notes', require('./routes/notes'));
 
 
 // Export the server app
