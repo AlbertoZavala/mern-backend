@@ -60,3 +60,82 @@ So, with this, now to start the server, we have to run
 Then we can go to the navigator and go to localhost:3000
 
 
+---
+# API
+
+#### Headers
+First at all, we should use: 
+KEY
+
+    Content-Type
+
+VALUE
+
+    application/json
+
+## Users
+
+#### GET - Get all users
+    http://localhost:{port}/api/users
+
+#### GET - Get one user
+    http://localhost:{port}/api/users/5f9e53250988343778083c8c
+
+#### PUT - Update one user
+    http://localhost:{port}/api/users/5f9e53250988343778083c8c
+
+Body
+```
+    {    
+        "username": "Updated User Name"    
+    }
+```
+
+#### POST - Create one user
+    http://localhost:{port}/api/users/
+
+Body
+```
+    {    
+        "username": "User Name"    
+    }
+```
+
+#### DELETE - Delete one user
+    http://localhost:{port}/api/users/5f9e53250988343778083c8c
+
+## Notes
+
+#### GET - Get all notes
+    http://localhost:{port}/api/notes
+
+#### GET - Get one note
+    http://localhost:{port}/api/notes/5f9e53250988343778083c8c
+
+#### PUT - Update one note
+    http://localhost:{port}/api/notes/5f9e53250988343778083c8c
+
+```
+{    
+    "title": "Updated Title",
+    "content": "Updated content text",    
+    "author": "Updated Author Name Here"
+}
+```
+
+#### POST - Create one note
+    http://localhost:{port}/api/notes/
+
+Body        
+
+```
+{    
+    "title": "Title",
+    "content": "This is my first note",    
+    "author": "Author Name Here"
+}
+```
+
+#### DELETE - Delete one note
+    http://localhost:{port}/api/notes/5f9e53250988343778083c8c
+
