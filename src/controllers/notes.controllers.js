@@ -4,7 +4,6 @@
 // We declare the notesController object.
 const notesController = {};
 
-const Note = require('./../models/Note');
 // Importing the model that we gonna use
 const NoteModel = require('./../models/Note');
 
@@ -16,14 +15,14 @@ notesController.getNotes = async (req, res) =>  {
 
 // Get one note.
 notesController.getNote = async (req, res) => {
-    const note = await Note.findById(req.params.id);    
+    const note = await NoteModel.findOne({ _id: req.params.id });    
     res.json(note)
 };
 
 // Create a note.
 notesController.createNote = async (req, res) => {    
      const { title, content, date, author } = req.body;          
-     const newNote = new Note({ title, content, date, author });
+     const newNote = new NoteModel({ title, content, date, author });
      await newNote.save()
 
     res.json({ message: 'Note Saved' })
@@ -31,13 +30,13 @@ notesController.createNote = async (req, res) => {
 
 // Update note
 notesController.updateNote = async (req, res) => {    
-    await Note.findOneAndUpdate({ _id: req.params.id }, req.body);    
+    await NoteModel.findOneAndUpdate({ _id: req.params.id }, req.body);    
     res.json({ message: 'Note Updated' })
 };
 
 // Delete note
 notesController.deleteNote = async (req, res) => {
-    await Note.findOneAndDelete({ _id: req.params.id });
+    await NoteModel.findOneAndDelete({ _id: req.params.id });
     res.json({ message: 'Note Deleted' })
 };
 

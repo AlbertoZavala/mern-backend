@@ -4,20 +4,41 @@
 // We declare the usersController object.
 const usersController = {};
 
+const User = require('./../models/User');
+const { findById } = require('./../models/User');
+const userModel = require('./../models/User');
+
 // Get all users.
-usersController.getUsers = (req, res) => res.json({ message: [] });
+usersController.getUsers = async (req, res) => {
+    const users = await userModel.find();
+    res.json(users);
+};
 
 // Get one user.
-usersController.getUser = (req, res) => res.json({ id: 1, name: 'Alberto Zavala', email: 'alberto.zavala@domain.com' });
+usersController.getUser = async (req, res) => {
+    const user = await userModel.findOne({ _id: req.params.id });
+    res.json(user);
+};
 
 // Create a user.
-usersController.createUser = (req, res) => res.json({ message: 'User Saved' });
+usersController.createUser = async (req, res) => {    
+    const { username } = req.body;
+    const user = new userModel({ username });
+    await user.save();    
+    res.json({ message: 'User Saved' })
+};
 
 // Update user
-usersController.updateUser = (req, res) => res.json({ message: 'User Updated' });
+usersController.updateUser = async (req, res) => {    
+    await userModel.findOneAndUpdate({ _id: req.params.id }, req.body)
+    res.json({ message: 'User Updated' })
+};
 
 // Delete user
-usersController.deleteUser = (req, res) => res.json({ message: 'User Deleted' });
+usersController.deleteUser = async (req, res) => {
+    await userModel.findOneAndDelete({ _id: req.params.id });
+    res.json({ message: 'User Deleted' })
+};
 
 module.exports = usersController;
 
